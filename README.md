@@ -26,6 +26,14 @@ The goal of this project was to replicate a real-world SOC workflow: generate at
 
 ---
 
+## Attack Scenario
+
+The attack originated from a Kali Linux VM targeting the Windows system over RDP. The attacker attempted multiple password combinations against common accounts such as Aministrator.
+
+Although authentication failed, the activity generated multiple Windows Event ID 4625 logs, which were ingested into Splunk and detected by the alert.
+
+---
+
 ## Attack Simulation
 
 A brute force attack was simulated from Kali Linux targeting the Windows system over RDP. Multiple failed login attempts were generated using Hydra with a common password wordlist.
@@ -56,6 +64,14 @@ This revealed repeated login attempts against common accounts such as Administra
 
 ---
 
+## Detection Logic
+The detection identifies excessive failed login attempts within a short time window, which is indicative of brute force behavior.
+
+Criteria:
+- Event ID: 4625 (failed logon)
+- Threshold: More than 5 failed attempts
+- Time window: 5 minutes
+
 ## Detection Rule
 
 A scheduled alert was created in Splunk to detect brute force behavior.
@@ -65,9 +81,9 @@ Alert Configuration:
 * Name: Brute Force Login Detection
 * Trigger: Number of results > 5
 * Time Range: Last 5 minutes
-* Schedule: Every 5 minutes
+* Schedule: Every 15 minutes after the Hour.
 
-This reduces noise while identifying repeated failed authentication attempts.
+This akert is configured to run periodically to identify repeated failed login attempts while reducing noise from isolated authentication failures.
 
 ---
 
