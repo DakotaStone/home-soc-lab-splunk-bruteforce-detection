@@ -99,13 +99,20 @@ This activity aligns with adversaries attempting to gain access through repeated
 
 ## Screenshots
 
-(Add screenshots here of:)
+### 🔍 Splunk Log Ingestion
+![Splunk Logs](screenshots/logs.png)
 
-* Splunk log ingestion
-* EventCode 4625 results
-* Detection query output
-* Alert configuration
-* Kali attack execution
+### 🚨 Failed Login Detection (Event ID 4625)
+![4625 Events](screenshots/4625.png)
+
+### 📊 Detection Query Output
+![Detection Query](screenshots/analysis.png)
+
+### ⚙️ Alert Configuration
+![Alert Setup](screenshots/alert.png)
+
+### 💥 Attack Simulation (Kali Linux)
+![Kali Attack](screenshots/attack.png)
 
 ---
 
