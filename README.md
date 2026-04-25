@@ -41,7 +41,7 @@ Event ID: 4625 (Failed Logon)
 Search query used:
 
 ```
-index=wineventlog EventCode=4625
+EventCode=4625
 ```
 
 To analyze attack patterns:
