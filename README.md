@@ -47,7 +47,7 @@ index=wineventlog EventCode=4625
 To analyze attack patterns:
 
 ```
-index=wineventlog EventCode=4625
+EventCode=4625
 | stats count by Account_Name, host
 | sort -count
 ```
